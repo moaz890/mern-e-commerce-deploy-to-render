@@ -25,7 +25,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(morgan('dev'));
 app.use(cors({
-    origin: process.env.CLIENT_ORIGIN,
+    origin: "*",
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control', 'X-Requested-With', 'Expires', 'Pragma'],
     credentials: true
