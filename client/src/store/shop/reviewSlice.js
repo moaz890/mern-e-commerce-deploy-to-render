@@ -9,12 +9,12 @@ const initialState =  {
 
 
 export const addReview = createAsyncThunk('review/addReview', async (reviewData) => {
-  const response = await axios.post(`https://mern-e-commerce-deploy-to-rende-git-530183-moaz-gazers-projects.vercel.app/api/shop/review/add`, reviewData);
+  const response = await axios.post(`/api/shop/review/add`, reviewData);
   return response.data;
 });
 
 export const getReviews = createAsyncThunk('review/getReviews', async (productId) => {
-  const response = await axios.get(`https://mern-e-commerce-deploy-to-rende-git-530183-moaz-gazers-projects.vercel.app/api/shop/review/get/${productId}`);
+  const response = await axios.get(`/api/shop/review/get/${productId}`);
   return response.data;
 });
 
