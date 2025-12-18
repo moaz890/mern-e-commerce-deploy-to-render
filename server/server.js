@@ -26,7 +26,7 @@ const PORT = process.env.PORT || 5000;
 app.use(morgan('dev'));
 
 app.use(cors({
-    origin: "*",
+    origin: "https://mern-e-commerce-deploy-to-render-gdat.vercel.app",
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control', 'X-Requested-With', 'Expires', 'Pragma'],
     credentials: true,

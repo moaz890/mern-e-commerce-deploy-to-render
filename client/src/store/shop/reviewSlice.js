@@ -9,12 +9,12 @@ const initialState =  {
 
 
 export const addReview = createAsyncThunk('review/addReview', async (reviewData) => {
-  const response = await axios.post(`http://localhost:5000/api/shop/review/add`, reviewData);
+  const response = await axios.post(`${import.meta.env.ORIGIN_UR}/api/shop/review/add`, reviewData);
   return response.data;
 });
 
 export const getReviews = createAsyncThunk('review/getReviews', async (productId) => {
-  const response = await axios.get(`http://localhost:5000/api/shop/review/get/${productId}`);
+  const response = await axios.get(`${import.meta.env.ORIGIN_UR}/api/shop/review/get/${productId}`);
   return response.data;
 });
 
