@@ -1,25 +1,23 @@
-import { BadgeCheck, LayoutDashboard, ShoppingBasket } from "lucide-react"
-
 export const registerFormControls = [
     {
         name: "username",
         label: "Username",
         type: "text",
-        placeholder: "Enter Username like Moaz gazer",
+        placeholder: "Username...",
         componentType: "input",
     },
     {
         name: "email",
         label: "Email",
         type: "email",
-        placeholder: "Enter Your Email like folan@example.com",
+        placeholder: "folan@example.com",
         componentType: "input",
     },
     {
         name: "password",
         label: "Password",
         type: "password",
-        placeholder: "Enter Your Password",
+        placeholder: "Password",
         componentType: "input",
     },
 ]

@@ -2,7 +2,7 @@ import Form from '@/components/common/form';
 import { loginFormControls } from '@/components/config';
 import { useToast } from '@/hooks/use-toast';
 import { loginUser } from '@/store/auth-slice';
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 

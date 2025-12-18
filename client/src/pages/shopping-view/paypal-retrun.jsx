@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 import { capturePayment } from '@/store/shop/orderSlice';
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const PaypalReturnPage = () => {
       dispatch(capturePayment({ paymentId, payerId, orderId })).then((response) => {
         if (response?.payload?.success){
           sessionStorage.removeItem('currentOrderId');
-          window.location.href = '/shop/payment-success';
+          window.location.href = '/home/payment-success';
         }
       });
     }

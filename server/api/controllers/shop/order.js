@@ -7,15 +7,21 @@ const Product = require("../../models/product");
 
 const createOrder = async (req, res) => {
     try {
-        const { userId, cartId, cartItems, addressInfo, orderStatus, paymentMethod, paymentStatus, amount, orderDate, orderUpdateDate, paymentId, payerId, quantity } = req.body;
+        const { userId, cartId, cartItems,
+                addressInfo, orderStatus, paymentMethod,
+                paymentStatus, amount, orderDate,
+                orderUpdateDate, paymentId,
+                payerId, quantity 
+            } = req.body;
+        
         const createPaymentJson = {
             intent: "sale",
             payer: {
                 payment_method: "paypal"
             },
             redirect_urls: {
-                return_url: process.env.CLIENT_URL+"/shop/paypal-return",
-                cancel_url: process.env.CLIENT_URL+"/shop/paypal-canel"
+                return_url: "http://localhost:5173/shop/paypal-return",
+                cancel_url: "http://localhost:5173/shop/paypal-cancel"
             },
             transactions: [
                 {
@@ -39,6 +45,7 @@ const createOrder = async (req, res) => {
 
         paypal.payment.create(createPaymentJson, async (error, payment) => {
             if (error) {
+                console.log(error);
                 return res.status(500).json({
                     message: "Internal Server Error",
                     success: false
@@ -72,7 +79,7 @@ const createOrder = async (req, res) => {
             })
         })
     } catch (error) {
-        console.log(error.message);
+        console.log(error);
         return res.status(500).json({
             message: "Internal Server Error",
             success: false
@@ -111,7 +118,7 @@ const capturePayment = async (req, res) => {
             success: true
         })
     } catch (error) {
-        console.log(error.message);
+        
         return res.status(500).json({
             message: "Internal Server Error",
             success: false

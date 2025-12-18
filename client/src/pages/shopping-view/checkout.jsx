@@ -22,9 +22,8 @@ const ShoppingCheckout = () => {
         return acc + (item?.productId?.salePrice > 0 ? item?.productId?.salePrice : item?.productId?.price ) * item?.quantity
     }, 0) || 0;
   
-  
   const handleInitiatePaypalPayment = () => {
-
+    
     if (cartItems?.length === 0 || cartItems?.items?.length === 0) {
       toast({
         title: 'Please add items to cart',
@@ -73,6 +72,7 @@ const ShoppingCheckout = () => {
     
     
     dispatch(createOrder(orderData)).then((data) => {
+      
       if (data?.payload?.success) {
         setIsPaymentStart(true)
       }else{

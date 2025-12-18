@@ -9,9 +9,9 @@ const initialState = {
 }
 
 export const registerUser = createAsyncThunk("/auth/register",
-    async (formData, { rejectWithValue}) => {
+    async (formData, { rejectWithValue }) => {
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, formData, { withCredentials: true });
+            const response = await axios.post(`http://localhost:5000/api/auth/register`, formData, { withCredentials: true });
             return response.data;
         }catch(error) {
             return rejectWithValue(error.response.data);
@@ -22,7 +22,7 @@ export const checkAuth = createAsyncThunk("/auth/check-auth",
     async () => {
         try {
             const response = await axios.get(
-                `${import.meta.env.VITE_API_URL}/api/auth/check-auth`,
+                `http://localhost:5000/api/auth/check-auth`,
                 { 
                     withCredentials: true,
                     headers:{
@@ -39,7 +39,7 @@ export const checkAuth = createAsyncThunk("/auth/check-auth",
 export const loginUser = createAsyncThunk("/auth/login",
     async (formData, { rejectWithValue}) => {
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, formData, { withCredentials: true });
+            const response = await axios.post(`http://localhost:5000/api/auth/login`, formData, { withCredentials: true });
             return response.data;
         }catch(error) {
             return rejectWithValue(error?.response?.data);
@@ -51,7 +51,7 @@ export const logoutUser = createAsyncThunk("/auth/logout",
 
     async () => {
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/logout`, {}, { withCredentials: true });
+            const response = await axios.post(`http://localhost:5000/api/auth/logout`, {}, { withCredentials: true });
             return response?.data;
         }catch(error) {
             return error?.response?.data;
@@ -63,9 +63,6 @@ const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
-        setUserInfo: (state, action) => {
-            
-        }
     }, 
     extraReducers: (builder) => {
         builder.addCase(registerUser.pending, (state) => {

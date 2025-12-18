@@ -42,7 +42,7 @@ const ShoppingHome = () => {
   const handleGetProductDetails = (productId) => {
     dispatch(fetchProductDetail(productId))
   }
-  console.log(cartItems)
+  
   const handleAddToCart = ( productId ) => {
     let getCartItems = cartItems.items || [];
     if (getCartItems.length){

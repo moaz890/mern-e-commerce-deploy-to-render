@@ -6,7 +6,7 @@ import { Button } from '../ui/button';
 import axios from 'axios';
 import { Skeleton } from '../ui/skeleton';
 
-const ProductImageUpload = ({file, setFile, uploadedImageUrl, setUploadedImageUrl, setImageLoadingState, imageLoadingState, isEditMode}) => {
+const ProductImageUpload = ({file, setFile , setUploadedImageUrl, setImageLoadingState, imageLoadingState, isEditMode}) => {
     const inputRef = useRef(null);
 
     const handleImageChange = (e) => {
@@ -39,8 +39,7 @@ const ProductImageUpload = ({file, setFile, uploadedImageUrl, setUploadedImageUr
             const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/admin/products/upload-image`, data);
             console.log(response);
             if (response?.data?.success) {
-                setUploadedImageUrl(response?.data?.result?.url)
-                
+                setUploadedImageUrl(response?.data?.result?.url);
                 setImageLoadingState(false);
             }
         }
@@ -57,7 +56,8 @@ const ProductImageUpload = ({file, setFile, uploadedImageUrl, setUploadedImageUr
                 <Input 
                     type='file' 
                     name='image' 
-                    id='image-upload' className='hidden' ref={inputRef}
+                    id='image-upload' 
+                    className='hidden' ref={inputRef}
                     onChange={handleImageChange}
                     disabled={isEditMode}
                 />

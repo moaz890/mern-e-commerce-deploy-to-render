@@ -88,7 +88,7 @@ const login = async (req, res) => {
                     username: data[0].username,
                     email: data[0].email,
                     role: data[0].role,
-                    username: data[0].username,
+                    id: data[0]._id
                 }
             });
         })
@@ -99,7 +99,7 @@ const login = async (req, res) => {
     })
 }
 
-const logout = (req, res, next) => {
+const logout = (req, res) => {
     res.clearCookie("token").json({
         success: true,
         message: "Logged out Successfully"

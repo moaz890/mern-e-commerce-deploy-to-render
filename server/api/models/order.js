@@ -1,10 +1,9 @@
-const { default: mongoose } = require('mongoose');
-const mogoose = require('mongoose');
+const mongoose = require('mongoose');
 
-const OrderSchema = new mogoose.Schema({
+const OrderSchema = new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     userId: {
-        type: mogoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
@@ -38,4 +37,4 @@ const OrderSchema = new mogoose.Schema({
     quantity: Number,
 });
 
-module.exports = mogoose.model('Order', OrderSchema);
+module.exports = mongoose.model('Order', OrderSchema);

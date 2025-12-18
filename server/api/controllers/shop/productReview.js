@@ -52,6 +52,7 @@ const addReview = async (req, res) => {
         })
     }
 }
+
 const getReviews = async (req, res) => {
     try {
         const {productId} = req.params;

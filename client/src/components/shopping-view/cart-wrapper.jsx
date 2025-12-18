@@ -18,7 +18,6 @@ const CartWrapper = ({ cartItems, setOpenCartSheet }) => {
     const { toast } = useToast();
     
     const handleDeleteCartItem = (item) => {
-        console.log(item, 'item');
         dispatch(deleteCartItem({
             userId: user?.id,
             productId: item?.productId?._id

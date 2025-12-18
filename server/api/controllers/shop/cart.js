@@ -14,7 +14,7 @@ const addToCart = async (req, res) => {
             })
         }
 
-        const product = await Product.findById(productId);
+        const product = await Item.findById(productId);
         if (!product) return res.status(404).json({
             message: "Product Not Found",
             success: false

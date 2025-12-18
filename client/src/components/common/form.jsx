@@ -12,8 +12,6 @@ const TYPES = {
 
 const Form = ({ formControls, onSubmit, formData, setFormData, buttonText, isFormValid }) => {
 
-    
-
     function renderInputsByComponentType(control) {
         let element = null;;
         const value = formData[control.name] || "";
@@ -34,7 +32,8 @@ const Form = ({ formControls, onSubmit, formData, setFormData, buttonText, isFor
                 break;
             case TYPES.SELECT:
                 element = (
-                    <Select value={value}
+                    <Select 
+                        value={value}
                         onValueChange={(value) => setFormData({
                             ...formData,
                             [control.name]: value

@@ -95,7 +95,7 @@ const Address = ({ currentAddress, setCurrentAddress }) => {
     dispatch(fetchAddresses(user?.id))
   }, [dispatch, user?.id]);
 
-  
+  console.log(user?.id)
 
   return (
     <Card>
