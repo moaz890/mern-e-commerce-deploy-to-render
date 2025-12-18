@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export const searchProducts = createAsyncThunk  ('search/searchProducts', async (keyword) => {
-  const response = await axios.get(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/search/${keyword}`);
+  const response = await axios.get(`https://mern-e-commerce-deploy-to-rende-git-530183-moaz-gazers-projects.vercel.app//api/shop/search/${keyword}`);
   return response.data
 });
 

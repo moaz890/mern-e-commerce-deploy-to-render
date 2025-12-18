@@ -11,22 +11,22 @@ const initialState = {
 }
 
 export const createOrder = createAsyncThunk('order/createOrder', async (orderData) => {
-    const response = await axios.post(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/order/create`, orderData);
+    const response = await axios.post(`https://mern-e-commerce-deploy-to-rende-git-530183-moaz-gazers-projects.vercel.app//api/shop/order/create`, orderData);
     return response.data;
 });
 
 export const capturePayment = createAsyncThunk('order/captureOrder', async ({ paymentId, orderId, payerId }) => {
-    const response = await axios.post(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/order/capture`, { paymentId, orderId, payerId });
+    const response = await axios.post(`https://mern-e-commerce-deploy-to-rende-git-530183-moaz-gazers-projects.vercel.app//api/shop/order/capture`, { paymentId, orderId, payerId });
     return response.data;
 });
 
 export const getAllOrdersByUser = createAsyncThunk('order/getOrderByUser', async (userId) => {
-    const response = await axios.get(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/order/list/${userId}`);
+    const response = await axios.get(`https://mern-e-commerce-deploy-to-rende-git-530183-moaz-gazers-projects.vercel.app//api/shop/order/list/${userId}`);
     return response.data;
 });
 
 export const getOrdersDetails = createAsyncThunk('order/getOrderDetails', async (id) => {
-    const response = await axios.get(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/order/details/${id}`);
+    const response = await axios.get(`https://mern-e-commerce-deploy-to-rende-git-530183-moaz-gazers-projects.vercel.app//api/shop/order/details/${id}`);
     return response.data;
 });
 
