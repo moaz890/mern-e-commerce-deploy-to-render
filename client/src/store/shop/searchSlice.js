@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export const searchProducts = createAsyncThunk  ('search/searchProducts', async (keyword) => {
-  const response = await axios.get(`${import.meta.env.ORIGIN_UR}/api/shop/search/${keyword}`);
+  const response = await axios.get(`https://mern-e-commerce-deploy-to-render.vercel.app/api/shop/search/${keyword}`);
   return response.data
 });
 

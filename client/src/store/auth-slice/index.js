@@ -10,8 +10,9 @@ const initialState = {
 
 export const registerUser = createAsyncThunk("/auth/register",
     async (formData, { rejectWithValue }) => {
+        
         try {
-            const response = await axios.post(`${import.meta.env.ORIGIN_UR}/api/auth/register`, formData, { withCredentials: true });
+            const response = await axios.post(`https://mern-e-commerce-deploy-to-render.vercel.app/api/auth/register`, formData, { withCredentials: true });
             return response.data;
         }catch(error) {
             return rejectWithValue(error.response.data);
@@ -22,7 +23,7 @@ export const checkAuth = createAsyncThunk("/auth/check-auth",
     async () => {
         try {
             const response = await axios.get(
-                `${import.meta.env.ORIGIN_UR}/api/auth/check-auth`,
+                `https://mern-e-commerce-deploy-to-render.vercel.app/api/auth/check-auth`,
                 { 
                     withCredentials: true,
                     headers:{
@@ -39,7 +40,7 @@ export const checkAuth = createAsyncThunk("/auth/check-auth",
 export const loginUser = createAsyncThunk("/auth/login",
     async (formData, { rejectWithValue}) => {
         try {
-            const response = await axios.post(`${import.meta.env.ORIGIN_UR}/api/auth/login`, formData, { withCredentials: true });
+            const response = await axios.post(`https://mern-e-commerce-deploy-to-render.vercel.app/api/auth/login`, formData, { withCredentials: true });
             return response.data;
         }catch(error) {
             return rejectWithValue(error?.response?.data);
@@ -51,7 +52,7 @@ export const logoutUser = createAsyncThunk("/auth/logout",
 
     async () => {
         try {
-            const response = await axios.post(`${import.meta.env.ORIGIN_UR}/api/auth/logout`, {}, { withCredentials: true });
+            const response = await axios.post(`https://mern-e-commerce-deploy-to-render.vercel.app/api/auth/logout`, {}, { withCredentials: true });
             return response?.data;
         }catch(error) {
             return error?.response?.data;
