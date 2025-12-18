@@ -7,25 +7,25 @@ const initialState = {
 };
 
 export const fetchAddresses = createAsyncThunk("address/fetchAddresses", async ( userId ) => {
-    const response = await axios.get(`https://mern-e-commerce-deploy-to-render.vercel.app/api/shop/address/get/${userId}`);
+    const response = await axios.get(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/address/get/${userId}`);
     
     return response?.data;
 })
 
 export const addAddress = createAsyncThunk("address/addAddress", async (formData) => {
     
-    const response = await axios.post(`https://mern-e-commerce-deploy-to-render.vercel.app/api/shop/address/add`, formData);
+    const response = await axios.post(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/address/add`, formData);
     return response?.data;
 });
 export const updateAddress = createAsyncThunk("address/updateAddress", async ({ userId, addressId, formData }) => {
     
-    const response = await axios.put(`https://mern-e-commerce-deploy-to-render.vercel.app/api/shop/address/update/${userId}/${addressId}`, formData, {
+    const response = await axios.put(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/address/update/${userId}/${addressId}`, formData, {
         withCredentials: true,
     });
     return response?.data;
 });
 export const deleteAddress = createAsyncThunk("address/deleteAddress", async ({ userId, addressId, formData}) => {    
-    const response = await axios.delete(`https://mern-e-commerce-deploy-to-render.vercel.app/api/shop/address/delete/${userId}/${addressId}`, formData);
+    const response = await axios.delete(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/address/delete/${userId}/${addressId}`, formData);
     return response?.data;
 });
 

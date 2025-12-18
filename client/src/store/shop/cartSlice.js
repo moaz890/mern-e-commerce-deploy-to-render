@@ -9,30 +9,30 @@ const initialState = {
 
 export const addToCart = createAsyncThunk("cart/addtocart", async ({ userId, productId, quantity}) => {
 
-    const response = await axios.post(`https://mern-e-commerce-deploy-to-render.vercel.app/api/shop/cart/add`, {userId, productId, quantity});
+    const response = await axios.post(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/cart/add`, {userId, productId, quantity});
     return response.data;
 
 })
 export const fetchCartItems = createAsyncThunk("cart/fetchCartItems", async ( userId ) => {
-    const response = await axios.get(`https://mern-e-commerce-deploy-to-render.vercel.app/api/shop/cart/get/${userId}`);
+    const response = await axios.get(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/cart/get/${userId}`);
     return response.data;
 })
 
 export const deleteCartItem = createAsyncThunk("/cart/deletecartitem", async ({ userId, productId }) => {
-    const response = await axios.delete(`https://mern-e-commerce-deploy-to-render.vercel.app/api/shop/cart/${userId}/${productId}`, {} );
+    const response = await axios.delete(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/cart/${userId}/${productId}`, {} );
     return response.data;
 
 })
 
 export const deleteProduct = createAsyncThunk("/products/delete", async (id) => {
-    const response = await axios.delete(`https://mern-e-commerce-deploy-to-render.vercel.app/api/admin/products/delete/${id}`);
+    const response = await axios.delete(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/admin/products/delete/${id}`);
 
     return response.data;
 })
 
 export const updateCartItems = createAsyncThunk("cart/updateCart", async ({ userId, productId, quantity}) => {
 
-    const response = await axios.put(`https://mern-e-commerce-deploy-to-render.vercel.app/api/shop/cart/update-cart`, {userId, productId, quantity});
+    const response = await axios.put(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/cart/update-cart`, {userId, productId, quantity});
     return response.data;
 
 })

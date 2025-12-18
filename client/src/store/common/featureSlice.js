@@ -7,12 +7,12 @@ const initialState = {
 }
 
 export const getFeatureImages = createAsyncThunk("feature/getFeatureImages", async ( ) => {
-    const response = await axios.get(`https://mern-e-commerce-deploy-to-render.vercel.app/api/admin/features/get`);
+    const response = await axios.get(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/admin/features/get`);
     return response.data;
 })
 
 export const addFeatureImage = createAsyncThunk("feature/getFeatureImages", async ( image ) => {
-    const response = await axios.post(`https://mern-e-commerce-deploy-to-render.vercel.app/api/admin/features/add`, {image});
+    const response = await axios.post(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/admin/features/add`, {image});
     return response.data;
 })
 

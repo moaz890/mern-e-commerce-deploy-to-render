@@ -6,14 +6,14 @@ export const fetchProducts = createAsyncThunk("/products/fetchProducts",
     async ({filterParams, sortParams}) => {
         const query = new URLSearchParams({...filterParams, sortBy: sortParams});
         console.log(query);
-        const response = await axios.get(`https://mern-e-commerce-deploy-to-render.vercel.app/api/shop/products/get?${query}`);
+        const response = await axios.get(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/products/get?${query}`);
         return response?.data;
     }
 )
 
 export const fetchProductDetail = createAsyncThunk("/products/fetchProductDetail", 
     async (id) => {
-        const response = await axios.get(`https://mern-e-commerce-deploy-to-render.vercel.app/api/shop/products/get/${id}`);
+        const response = await axios.get(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/products/get/${id}`);
         return response?.data;
     }
 )

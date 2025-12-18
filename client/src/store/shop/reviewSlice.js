@@ -9,12 +9,12 @@ const initialState =  {
 
 
 export const addReview = createAsyncThunk('review/addReview', async (reviewData) => {
-  const response = await axios.post(`https://mern-e-commerce-deploy-to-render.vercel.app/api/shop/review/add`, reviewData);
+  const response = await axios.post(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/review/add`, reviewData);
   return response.data;
 });
 
 export const getReviews = createAsyncThunk('review/getReviews', async (productId) => {
-  const response = await axios.get(`https://mern-e-commerce-deploy-to-render.vercel.app/api/shop/review/get/${productId}`);
+  const response = await axios.get(`mern-e-commerce-deploy-to-render-gdat-848mn2u9c.vercel.app/api/shop/review/get/${productId}`);
   return response.data;
 });
 
