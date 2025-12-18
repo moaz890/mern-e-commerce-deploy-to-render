@@ -25,14 +25,14 @@ const PORT = process.env.PORT || 5000;
 
 app.use(morgan('dev'));
 
-app.use(cors({
-    origin: "https://mern-e-commerce-deploy-to-render-gdat.vercel.app",
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control', 'X-Requested-With', 'Expires', 'Pragma'],
-    credentials: true,
-    optionsSuccessStatus: 200
-}));
 
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://mern-e-commerce-deploy-to-render-gdat.vercel.app");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, Cache-Control, X-Requested-With, Expires, Pragma");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    next();
+})
 
 app.use(cookieParser());
 app.use(express.json());
