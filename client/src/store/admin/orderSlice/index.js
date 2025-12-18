@@ -9,19 +9,19 @@ const initialState = {
 }
 
 export const getAllOrdersForAdmin = createAsyncThunk('order/getOrdersForAdmin', async () => {
-    const response = await axios.get(`https://mern-e-commerce-deploy-to-rende-git-530183-moaz-gazers-projects.vercel.app//api/admin/order/get`);
+    const response = await axios.get(`https://mern-e-commerce-deploy-to-rende-git-530183-moaz-gazers-projects.vercel.app/api/admin/order/get`);
     return response.data;
 });
 
 export const getOrdersDetailsForAdmin = createAsyncThunk('order/getOrderDetailsForAdmin', async (id) => {
-    const response = await axios.get(`https://mern-e-commerce-deploy-to-rende-git-530183-moaz-gazers-projects.vercel.app//api/admin/order/details/${id}`);
+    const response = await axios.get(`https://mern-e-commerce-deploy-to-rende-git-530183-moaz-gazers-projects.vercel.app/api/admin/order/details/${id}`);
     
     return response.data;
 });
 
 
 export const updateOrderStatus = createAsyncThunk("ordre/updateOrderStatus", async ({id, orderStatus}) => {
-    const response = await axios.put(`https://mern-e-commerce-deploy-to-rende-git-530183-moaz-gazers-projects.vercel.app//api/admin/order/update/${id}`, {orderStatus});
+    const response = await axios.put(`https://mern-e-commerce-deploy-to-rende-git-530183-moaz-gazers-projects.vercel.app/api/admin/order/update/${id}`, {orderStatus});
     return response.data;
 })
 const orderSliceForAdmin = createSlice({
