@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
+const path = require('path');
 
 const authRoutes = require('./api/routes/auth-routes');
 const adminProductsRoutes = require("./api/routes/admin/products")
@@ -16,7 +17,7 @@ const searchRoutes = require("./api/routes/shop/search");
 const reviewRoutes = require("./api/routes/shop/review");
 const adminFeaturesRoutes = require("./api/routes/admin/feature")
 
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect("mongodb+srv://mozagazzer:lUnOMMaY3GU8SGTj@cluster0.blmry.mongodb.net/")
     .then(() =>  console.log('connected to database'))
     .catch((err) => console.log(err));
 
@@ -36,6 +37,7 @@ app.use((req, res, next) => {
 
 app.use(cookieParser());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'client/dist')));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/admin/order', adminOrderRoutes);
@@ -48,6 +50,10 @@ app.use('/api/shop/address', shopAddressRoutes);
 app.use('/api/shop/order', orderRoutes);
 app.use('/api/shop/search', searchRoutes);
 app.use('/api/shop/review', reviewRoutes);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
